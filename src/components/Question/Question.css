@@ -17,12 +17,25 @@
 }
 
 .chip {
-  border-radius: 20px;
+  border-radius: 11px;
   background-color: var(--secondary-color);
   color: var(--secondary-text-color);
   width: fit-content;
   margin-right: 10px;
-  padding: 10px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.chip[data-difficulty="hard"] {
+  background-color: var(--danger-color);
+}
+
+.chip[data-difficulty="medium"] {
+  background-color: var(--warning-color);
+}
+
+.chip[data-difficulty="easy"] {
+  background-color: var(--easy-color);
 }
 
 .answers-container {

@@ -2,6 +2,7 @@ import React, { useEffect, useState, type FC } from 'react'
 import AnswerComponent from '../Answer'
 import { type Question } from '../../model/TriviaApi'
 import './Question.css'
+import { capitalize } from '../../util'
 
 export type QuestionProps = Question & {
   onRight?: (e: React.MouseEvent<HTMLDivElement>) => void
@@ -30,7 +31,7 @@ const QuestionComponent: FC<QuestionProps> = ({
     <div className="question-header">
       <h1 className="question-title" dangerouslySetInnerHTML={{ __html: question }} />
       <div className="question-chips">
-        <p className="chip">{difficulty}</p>
+        <p className="chip" data-difficulty={difficulty}>{capitalize(difficulty)}</p>
         <p className="chip">{category}</p>
       </div>
     </div>

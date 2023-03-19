@@ -1,0 +1,60 @@
+.modal-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.modal-message {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.modal-button {
+  padding: 5px;
+  margin-top: 10px;
+  width: 80px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-button:hover {
+  background-color: #7c9b47;
+}
+
+.modal-button:active {
+  background-color: #52672c;
+}
+
+.modal-ok {
+  color: var(--primary-text-color);
+  background-color: var(--easy-color);
+}
+
+.modal-cancel {
+  color: var(--primary-text-color);
+  background-color: var(--danger-color);
+}
