@@ -1,0 +1,16 @@
+.status-bar {
+    background-color: var(--primary-color);
+    height: 150px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.status-bar h3 {
+    font-size: 25px;
+}
+
+.status-bar h3:last-child {
+    margin-top: 10px;
+}
