@@ -7,7 +7,7 @@ interface AnswerProps {
 }
 
 const AnswerComponent: FC<AnswerProps> = ({ content, onClick }) => {
-  return <p onClick={onClick} className="answer">{content}</p>
+  return <p onClick={onClick} className="answer" dangerouslySetInnerHTML={{ __html: content }}></p>
 }
 
 export default AnswerComponent

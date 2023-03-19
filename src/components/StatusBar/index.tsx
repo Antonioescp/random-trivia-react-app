@@ -5,16 +5,21 @@ interface StatusBarProps {
   totalRightAnswers: number
   totalQuestions: number
   currentQuestion: number
+  elapsedTime: number
+  timeToAnswer: number
 }
 
 const StatusBar: FC<StatusBarProps> = ({
   totalQuestions,
   totalRightAnswers,
-  currentQuestion
+  currentQuestion,
+  elapsedTime,
+  timeToAnswer
 }) => {
   return <div className="status-bar">
-    <h3 className="current-question" >{currentQuestion}</h3>
-    <h3 className="score">{totalRightAnswers}/{totalQuestions}</h3>
+    <h3>Remaining time: {(timeToAnswer - elapsedTime)}</h3>
+    <h3 className="score">Score: {totalRightAnswers}/{totalQuestions}</h3>
+    <h3 className="current-question" >Current question: {currentQuestion}</h3>
   </div>
 }
 

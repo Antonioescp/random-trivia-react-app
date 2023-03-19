@@ -1,6 +1,5 @@
-import React, { type FC } from 'react'
+import React, { useEffect, useState, type FC } from 'react'
 import AnswerComponent from '../Answer'
-import { v4 as uuidv4 } from 'uuid'
 import { type Question } from '../../model/TriviaApi'
 import './Question.css'
 
@@ -18,26 +17,31 @@ const QuestionComponent: FC<QuestionProps> = ({
   onRight,
   onWrong
 }) => {
-  // The answers need to be shuffled since they are always received
-  // in the same order
-  const shuffledAnswers = [correctAnswer, ...incorrectAnswers]
-    .sort(q => Math.random() - 0.5)
-    .map(q => <AnswerComponent
-      content={q}
-      onClick={q === correctAnswer ? onRight : onWrong}
-      key={uuidv4()}
-    />)
+  const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([])
+
+  useEffect(() => {
+    setShuffledAnswers(
+      [correctAnswer, ...incorrectAnswers]
+        .sort(q => Math.random() - 0.5)
+    )
+  }, [correctAnswer, incorrectAnswers])
 
   return <>
     <div className="question-header">
-      <h1 className="question-title">{question}</h1>
+      <h1 className="question-title" dangerouslySetInnerHTML={{ __html: question }} />
       <div className="question-chips">
         <p className="chip">{difficulty}</p>
         <p className="chip">{category}</p>
       </div>
     </div>
     <div className="answers-container">
-      {shuffledAnswers}
+      {shuffledAnswers
+        .map(q => <AnswerComponent
+          content={q}
+          onClick={q === correctAnswer ? onRight : onWrong}
+          key={q}
+        />)
+      }
     </div>
   </>
 }
